@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %} Search Books {% endblock %} {% block body %}
+
+<body>
+    <h2> In this page you can search books by their ISBN, title or author. Go!</h2>
+    <div class="card" style="width:30rem;">
+        <div class="card-body">
+            <h5 class="card-title">What are you searching for?</h5>
+            <form action="" method="post">
+                <input class="form-control" type="text" placeholder="isbn, title, author" name="search_data">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            </div>
+    </div>
+    <ol>
+        {% if results %}
+            {% for result in results %}
+            <li><a href="search/{{result.isbn}}">{{result.isbn}} - {{ result.title }}, {{result.author}}</a> </li>
+            {% endfor %}
+        {% endif %}
+        {% if results == [] %}
+            <li> NO results </li>
+        {% endif %}
+    </ol>
+    
+</body>
+{% endblock %}

@@ -1,0 +1,42 @@
+form{
+    margin: auto;
+    width:250px;
+}
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+}
+
+h5 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    color: black;
+    text-align: justify;
+}
+
+
+table{
+    border: 5px solid blue;
+    border-collapse: collapse;
+    width: 90%;
+}
+td, th{
+    border: 3px solid blue;
+    padding: 2px;
+    text-align: center;
+}
+th{
+    color:black;
+    text-align: center;
+    background-color: lightblue;
+    padding: 10px;
+}
+.card{
+    margin: 0 auto;
+}

@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %} {{book.title}} {% endblock %} {% block body %}
+
+<body>
+        <div class="card text-center" style="width: 40rem; margin: 25px auto;">
+                <div class="card-header" style="background-color: lightblue; ">
+                        <h1>{{book.title}}</h1>
+                </div>
+                <ul class="list-group list-group-flush "  >
+                  <li class="list-group-item"><span>Author :</span> {{book.author}}</li>
+                  <li class="list-group-item"><span>Year :</span> {{book.year}}</li>
+                  <li class="list-group-item"><span>ISBN :</span> {{book.isbn}}</li>
+                </ul>
+        </div>
+
+
+        <div class="card text-center" style="width: 40rem; margin: 25px auto;">
+                <div class="card-header" style="background-color: lightblue; ">
+                        <h2>Reviews</h2>
+                </div>
+                <ul class="list-group list-group-flush "  >
+                    {% if reviews|length == 0 %}
+                        <li class="list-group-item"><h3>Book not reviewed yet</h3></li>
+                    {% else %}
+                        {% for review in reviews %}
+                            <li class="list-group-item" >
+                                    <div class="card" style="width: 35rem;">
+                                            <div class="card-header" style="background-color: lightgray; ">
+                                              User: <span> {{review.username}}</span> 
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                               <li class="list-group-item"> Rating: {{review.rating}}</li>     
+                                              <li class="list-group-item">{{review.review}}</li>
+                                            </ul>
+                                          </div>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <a type="button" class="btn btn-primary" href="/review/{{isbn}}"> Add review </a>
+        </div>
+   
+        <div class="card text-center" style="width: 40rem; margin: 25px auto;">
+            <div class="card-header" style="background-color: lightblue; ">
+                    <h2>Goodreads' Reviews </h2>
+            </div>
+            <ul class="list-group list-group-flush "  >
+              <li class="list-group-item"><span><h4> Average rating: </h4> </span> <h5>{{res.average_rating}}</h5></li>
+              <li class="list-group-item"><span><h4> Number of ratings: </h4></span> <h5>{{res.ratings_count}}</h5></li>
+            </ul>
+    </div>
+    
+</body>
+{% endblock %} 
